@@ -3,7 +3,7 @@ import * as React from 'react';
 class Sidebar extends React.Component<any, any>  {
   public render() {
     return (
-      <div>
+      <div className="sidebar">
         Sidebar
       </div>
     );
