@@ -22,7 +22,7 @@ class Sidebar extends React.Component<any, any>  {
     };
 
     return (
-      <div>
+      <div className="sidebar">
         Server
         <Fab color="primary" aria-label="add">
           <AddIcon />
@@ -49,6 +49,7 @@ class Sidebar extends React.Component<any, any>  {
           </Button>
         </DialogActions>
       </Dialog>
+
       </div>
     );
   }

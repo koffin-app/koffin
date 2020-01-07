@@ -3,9 +3,9 @@ import * as React from 'react';
 class Editor extends React.Component<any, any>  {
   public render() {
     return (
-      <div>
+      <main className="editor">
         Editor
-      </div>
+      </main>
     );
   }
 }
