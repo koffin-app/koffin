@@ -1,58 +1,28 @@
 import * as React from 'react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import TextField from '@material-ui/core/TextField';
+import BrokerModal from './brokerModal';
 
-class Sidebar extends React.Component {
-  state = { open: false };
+export default function Sidebar() {
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState();
 
-  handleOpen = () => {
-    this.setState({ open: true });
-  }
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-  handleClose = () => {
-    this.setState({ open: false });
-  }
+  const handleClose = (value: string) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
 
-  render() {
-    return (
-      <div className="sidebar">
-        Servers
-        <Fab color="primary" aria-label="add" onClick={this.handleOpen}>
-          <AddIcon />
-        </Fab>
-
-        <Dialog open={this.state.open} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Connect to Server</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="server"
-            label="Server"
-            type="text"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={this.handleClose} color="secondary">
-            Cancel
-          </Button>
-          <Button onClick={this.handleClose} color="primary">
-            Connect
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      </div>
-    );
-  }
+  return (
+    <div className="sidebar">
+      Servers
+      <Fab size="small" color="primary" aria-label="add" onClick={handleClickOpen}>
+        <AddIcon />
+      </Fab>
+      <BrokerModal selectedValue={selectedValue} open={open} onClose={handleClose} />
+    </div>
+  );
 }
-
-export default Sidebar;
-  
