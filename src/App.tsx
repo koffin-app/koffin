@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import Button from '@material-ui/core/Button';
 import './App.css';
+import Sidebar from './sidebar';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      <Sidebar />
     </div>
   );
 }
