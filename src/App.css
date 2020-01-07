@@ -13,9 +13,8 @@
 }
 
 .sidebar{
-  border-style: solid;
   flex: 1;
-  border-width: .5px
+  max-width: 500px;
 }
 
 .editor{

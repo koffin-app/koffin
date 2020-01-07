@@ -20,6 +20,7 @@ interface TabPanelProps {
   name: string;
   index: any;
   value: any;
+
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -31,6 +32,7 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`${name}`}
       aria-labelledby={`${name}`}
+      className="editor-window"
       {...other}
     >
       {value === index && <Box p={3}>{children}</Box>}
