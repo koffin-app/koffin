@@ -17,9 +17,21 @@
   max-width: 500px;
 }
 
-.editor{
-  background-color: white;
-  color: #282c34;
+.primary-pane{
+  /* Used to house everything that will sit on the right hand main window.*/
   flex: 4;
 }
 
+.editor{
+  background-color: white;
+  color: #282c34;
+  height: 90vh;
+}
+
+.logging{
+  background-color: white;
+  color: #282c34;
+  border-top: 1px solid black;
+  height: calc(10vh - 1px);
+  overflow: scroll;
+}
