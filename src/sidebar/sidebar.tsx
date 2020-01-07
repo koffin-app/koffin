@@ -1,34 +1,33 @@
 import * as React from 'react';
-import { Fab } from '@material-ui/core';
+import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
 
-class Sidebar extends React.Component<any, any>  {
-  public render() {
-    const [open, setOpen] = React.useState(false);
+class Sidebar extends React.Component {
+  state = { open: false };
 
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
+  handleOpen = () => {
+    this.setState({ open: true });
+  }
 
-    const handleClose = () => {
-      setOpen(false);
-    };
+  handleClose = () => {
+    this.setState({ open: false });
+  }
 
+  render() {
     return (
       <div className="sidebar">
         Server
-        <Fab color="primary" aria-label="add">
+        <Fab color="primary" aria-label="add" onClick={this.handleOpen}>
           <AddIcon />
         </Fab>
 
-        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <Dialog open={this.state.open} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Connect to Server</DialogTitle>
         <DialogContent>
           <TextField
@@ -41,10 +40,10 @@ class Sidebar extends React.Component<any, any>  {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={this.handleClose} color="secondary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={this.handleClose} color="primary">
             Connect
           </Button>
         </DialogActions>
