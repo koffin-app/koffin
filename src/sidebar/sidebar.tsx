@@ -22,7 +22,7 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div className="sidebar">
-        Server
+        Servers
         <Fab color="primary" aria-label="add" onClick={this.handleOpen}>
           <AddIcon />
         </Fab>
