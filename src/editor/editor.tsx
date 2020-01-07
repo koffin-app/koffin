@@ -48,15 +48,15 @@ export default function Editor() {
     <div className="editor">
       <AppBar position="static">
         <Tabs value={value} onChange={handleTabChange} aria-label="editor-tabs">
-          <Tab label="Producer" {...a11yProps(0)} />
-          <Tab label="Consumer" {...a11yProps(1)} />
+          <Tab label="Produce" {...a11yProps(0)} />
+          <Tab label="Consume" {...a11yProps(1)} />
           <Tab label="Metadata" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0} name="Producer">
+      <TabPanel value={value} index={0} name="Produce">
         <Produce></Produce>
       </TabPanel>
-      <TabPanel value={value} index={1} name="Consumer">
+      <TabPanel value={value} index={1} name="Consume">
         <Consume></Consume>
       </TabPanel>
       <TabPanel value={value} index={2} name="Metadata">
