@@ -1,7 +1,8 @@
 import * as React from 'react';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import IconButton from '@material-ui/core/IconButton';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import BrokerModal from './brokerModal';
+import ServerList from './serverList';
 import './sidebar.css'
 
 export default function Sidebar() {
@@ -12,21 +13,21 @@ export default function Sidebar() {
     setOpen(true);
   };
 
-  const handleClose = (value: string) => {
+  const handleBrokerModalClose = (value: string) => {
     setOpen(false);
     setSelectedValue(value);
   };
 
   return (
     <div className="sidebar">
+      <BrokerModal selectedValue={selectedValue} open={open} onClose={handleBrokerModalClose} />
       <header className="add-server-header">
         <div className="title">Servers</div>
-        <Fab size="small" color="default" aria-label="add" onClick={handleClickOpen}>
-          <AddIcon />
-        </Fab>  
+        <IconButton color="primary" aria-label="add" onClick={handleClickOpen}>
+          <AddCircleOutlineIcon fontSize="small" />
+        </IconButton>  
       </header>
-      
-      <BrokerModal selectedValue={selectedValue} open={open} onClose={handleClose} />
+      <ServerList />
     </div>
   );
 }

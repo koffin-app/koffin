@@ -20,6 +20,7 @@ export default function BrokerModal(props: BrokerModalProps)  {
   };
 
   const handleConnect = (value: string) => {
+    // return host:port and list of topics
     onClose(value);
   };
 
