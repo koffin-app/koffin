@@ -1,0 +1,12 @@
+.add-server-header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 12px 0px 12px;
+
+}
+
+.add-server-header > .title {
+    font-size: x-large;
+    opacity: 0.5;
+}

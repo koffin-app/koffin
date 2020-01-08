@@ -2,6 +2,7 @@ import * as React from 'react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import BrokerModal from './brokerModal';
+import './sidebar.css'
 
 export default function Sidebar() {
   const [open, setOpen] = React.useState(false);
@@ -18,10 +19,13 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      Servers
-      <Fab size="small" color="primary" aria-label="add" onClick={handleClickOpen}>
-        <AddIcon />
-      </Fab>
+      <header className="header">
+        <div>Servers</div>
+        <Fab size="small" color="default" aria-label="add" onClick={handleClickOpen}>
+          <AddIcon />
+        </Fab>  
+      </header>
+      
       <BrokerModal selectedValue={selectedValue} open={open} onClose={handleClose} />
     </div>
   );
