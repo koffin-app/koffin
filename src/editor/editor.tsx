@@ -39,7 +39,12 @@ function TabPanel(props: TabPanelProps) {
     </Typography>
   );
 }
-export default function Editor() {
+
+interface EditorProps {
+  selectedTopic: string,
+}
+
+export default function Editor(props:EditorProps) {
   const [value, setValue] = React.useState(0);
 
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
@@ -59,7 +64,7 @@ export default function Editor() {
         <Produce></Produce>
       </TabPanel>
       <TabPanel value={value} index={1} name="Consume">
-        <Consume></Consume>
+        <Consume selectedTopic={props.selectedTopic}></Consume>
       </TabPanel>
       <TabPanel value={value} index={2} name="Metadata">
         <Metadata></Metadata>
