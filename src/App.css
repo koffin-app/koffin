@@ -9,7 +9,7 @@
   flex-direction: row;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #D3D3D3;
 }
 
 .sidebar{
