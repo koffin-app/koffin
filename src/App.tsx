@@ -7,7 +7,9 @@ import Logging from './logging/logging'
 
 
 interface AppState {
-  logs: Array<string>
+  logs: Array<string>,
+  topics: Array<string>,
+  selectedTopic: string,
 }
 
 class App extends React.Component<any, AppState> {
@@ -16,11 +18,15 @@ class App extends React.Component<any, AppState> {
     super(props);
     let initialState: AppState = {
       logs: ["Started", ],
+      topics: [],
+      selectedTopic: "",
     }
     this.state = initialState;
 
     this.appendLog = this.appendLog.bind(this);
     this.clearLog = this.clearLog.bind(this);
+    this.setSelectedTopic = this.setSelectedTopic.bind(this);
+    this.setTopics = this.setTopics.bind(this);
   }
 
   appendLog(item:string) {
@@ -37,14 +43,27 @@ class App extends React.Component<any, AppState> {
     this.setState({logs: newLogs});
   }
 
+  setSelectedTopic(topic:string) {
+    this.setState({selectedTopic: topic});
+  }
+
+  setTopics(topics:Array<string>) {
+    this.setState({topics: topics});
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-main">
           <KoffinContext.Provider value={this.state}>
-            <Sidebar></Sidebar>
+            <Sidebar
+              topics={this.state.topics}
+              selectedTopic={this.state.selectedTopic}
+              setTopic={this.setSelectedTopic}
+              setTopics={this.setTopics}></Sidebar>
             <div className="primary-pane">
-              <Editor></Editor>
+              <Editor
+                selectedTopic={this.state.selectedTopic}></Editor>
               <Logging 
                 logs={this.state.logs}
                 appendLogs={this.appendLog}
