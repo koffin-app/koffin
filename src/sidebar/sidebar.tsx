@@ -19,8 +19,8 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      <header className="header">
-        <div>Servers</div>
+      <header className="add-server-header">
+        <div className="title">Servers</div>
         <Fab size="small" color="default" aria-label="add" onClick={handleClickOpen}>
           <AddIcon />
         </Fab>  
