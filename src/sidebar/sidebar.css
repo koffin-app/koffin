@@ -2,11 +2,11 @@
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px 12px 0px 12px;
+    margin: 10px 14px 0px 14px;
 
 }
 
 .add-server-header > .title {
     font-size: x-large;
-    opacity: 0.5;
+    opacity: 0.9;
 }
