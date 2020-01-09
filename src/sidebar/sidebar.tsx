@@ -37,7 +37,7 @@ export default function Sidebar(props:SidebarProps) {
     props.setTopics(topics);
   }
 
-  const handleClickOpen = () => {
+  const handleBrokerModalOpen = () => {
     setOpen(true);
   };
 
@@ -48,12 +48,12 @@ export default function Sidebar(props:SidebarProps) {
 
   return (
     <div className="sidebar">
-      <BrokerModal selectedValue={selectedValue} open={open} onClose={handleBrokerModalClose} />
       <header className="add-server-header">
         <div className="title">Servers</div>
-        <IconButton color="primary" aria-label="add" onClick={handleClickOpen}>
+        <IconButton color="primary" aria-label="add" onClick={handleBrokerModalOpen}>
           <AddCircleOutlineIcon fontSize="small" />
-        </IconButton>  
+        </IconButton>
+        <BrokerModal selectedValue={selectedValue} open={open} onClose={handleBrokerModalClose} />
       </header>
       <FormControl className="form-control">
         <InputLabel shrink id="select-topic-label">Topic</InputLabel>
@@ -73,8 +73,6 @@ export default function Sidebar(props:SidebarProps) {
         </Select>
       </FormControl>
       <Button onClick={handleSetTopics}>Test Populate Topics</Button>
-      
-      <BrokerModal selectedValue={selectedValue} open={open} onClose={handleClose} />
     </div>
   );
 }

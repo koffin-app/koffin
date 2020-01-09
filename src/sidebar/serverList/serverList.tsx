@@ -20,13 +20,25 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function ServerList() {
+interface ServerListProps {
+  topics: Array<string>,
+  selectedTopic: string,
+  setTopic: Function,
+  setTopics: Function,  // Just for testing
+}
+
+export default function ServerList(props: ServerListProps) {
   const classes = useStyles();
   const [expand, setExpand] = React.useState(false);
   
   const handleExpand = () => {
     setExpand(!expand);
   };
+
+  const handleSetTopic = (event: React.ChangeEvent<{ value: unknown }>) => {
+    let topic = event.target.value; // This will be a string ...
+    props.setTopic(topic);
+  }
 
   return (
     <List component="nav" aria-label="servers">
